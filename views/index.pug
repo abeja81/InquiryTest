@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    title= `${title}`
+    link(rel='stylesheet', href='/styles/bootstrap.css')
+    link(href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
+    link(rel='stylesheet', href='/styles/styles.css')
+    
+
+  body
+    div.modal-container
+    div.container.listing-reg#newinq
+      div.modal-header
+        h3 Tasty Treats - New Inquiries
+
+      if newinq.length
+        each inq in newinq
+          div.inquiry-item
+            div.row
+              div.col-md-4
+                span.description Name:
+                p= inq.name
+              div.col-md-6 
+                span.description E-mail:
+                p= inq.email
+              div.col-md-2 
+                span.description Newsletter
+                if inq.newsletter
+                  <p><i class="fa fa-check-circle"></i></p>
+              div.col-md-12
+                span.description Message
+                p= inq.message
+      else
+        p No Inquiries Yet :(

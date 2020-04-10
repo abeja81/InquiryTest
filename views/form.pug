@@ -1,0 +1,55 @@
+extends layout
+
+block content
+    
+  -data = data || {}
+
+  if errors
+    ul.my-errors
+      for error in errors
+        li.cocor= error.msg
+
+  form(action="." method="POST" id="kokot")
+    <div class="form-group">
+    label(for="name") Name:
+    input(
+      type="text"
+      id="name"
+      name="name"
+      class="form-control"
+      value=data.name
+    )
+
+    label(for="email") Email:
+    input(
+      type="email"
+      id="email"
+      name="email"
+      class="form-control"
+      value=data.email
+    )
+    label(for="message") Message:
+    input(
+      type="textarea"
+      id="message"
+      name="message"
+      class="form-control"
+      rows="4" 
+      cols="50"
+      value=data.message
+    )
+    input(
+      type="checkbox"
+      id="newsletter"
+      name="newsletter"
+      value=data.newsletter
+    )
+    label(for="newsletter" class="form-check-label") Would you like to sign up to Tasty Treats' newsletter?
+    <div class="g-recaptcha" data-sitekey="6LetbOgUAAAAABreZsCI0BjlPpow_u1yodm_RGY-" style="margin-top: 15px;"></div>
+    br
+    input(type="submit" value="Submit" class)
+
+    </div>
+
+
+    
